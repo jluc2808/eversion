@@ -971,17 +971,17 @@ class api.dataYAMJ {
 					if(itemResult=="UNKNOWN" || itemResult==null || itemResult==undefined) {
 						itemResult=XPathAPI.selectSingleNode(titleXML, "/movie/plot").firstChild.nodeValue.toString();
 					}
-					itemResult=StringUtil.remove(itemResult, "See full summary »");
+					itemResult=StringUtil.remove(itemResult, "See full summary Â»");
 					itemResult=StringUtil.remove(itemResult, "{br}");
 					break;
 				case 'outline':
 					itemResult=XPathAPI.selectSingleNode(titleXML, "/movie/outline").firstChild.nodeValue.toString();
-					itemResult=StringUtil.remove(itemResult, "See full summary »");
+					itemResult=StringUtil.remove(itemResult, "See full summary Â»");
 					itemResult=StringUtil.remove(itemResult, "{br}");
 					break;
 				case 'plot':
 					itemResult=XPathAPI.selectSingleNode(titleXML, "/movie/plot").firstChild.nodeValue.toString();
-					itemResult=StringUtil.remove(itemResult, "See full summary »");
+					itemResult=StringUtil.remove(itemResult, "See full summary Â»");
 					itemResult=StringUtil.remove(itemResult, "{br}");
 					break;
 				case 'smartplot':
@@ -989,7 +989,7 @@ class api.dataYAMJ {
 					if(itemResult=="UNKNOWN" || itemResult==null || itemResult==undefined) {
 						itemResult=XPathAPI.selectSingleNode(titleXML, "/movie/outline").firstChild.nodeValue.toString();
 					}
-					itemResult=StringUtil.remove(itemResult, "See full summary »");
+					itemResult=StringUtil.remove(itemResult, "See full summary Â»");
 					itemResult=StringUtil.remove(itemResult, "{br}");
 					break;
 				case 'fulltitle':
@@ -1155,6 +1155,10 @@ class api.dataYAMJ {
 							itemResult="VC1";
 						}else if(itemResult.indexOf("H.264") != -1) {
 							itemResult="H264";
+						}else if(itemResult.indexOf("H.265") != -1) {
+							itemResult="H265";
+						}else if(itemResult.indexOf("UHD") != -1) {
+							itemResult="UHD";
 						}else if(itemResult.indexOf("MPEG") != -1) {
 							itemResult="MPEG";
 						}else if(itemResult.indexOf("MICROSOFT") != -1) {
